@@ -37,6 +37,7 @@ List<Libro> aux2 = new ArrayList();
             System.out.println("<<<Ingrese el ISBN>>>");
            
             Long isbn = leer.nextLong(); 
+            
             if (buscarLibroIsbn(isbn)==null) {
             System.out.print("->");l1.setIsbn(isbn);
             System.out.println("*********************");
@@ -71,7 +72,9 @@ List<Libro> aux2 = new ArrayList();
             
         } catch (Exception e) {
             throw e;
+            
         }
+      
     }
 //Metodo Buscar libro
  //9) Búsqueda de un libro por ISBN.

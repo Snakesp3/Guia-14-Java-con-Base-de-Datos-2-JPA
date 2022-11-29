@@ -14,17 +14,18 @@ public class PablitoMain {
 
         Serviciolibro l1 = new Serviciolibro();
 
-        //a1.crearAutor();
-        System.out.println("-----------------------------------");
-        //a1.modificarAutor("CARLOSTEVEZ");
-        // e1.crearEditorial();
+        l1.crearLibro();
+        a1.crearAutor();
+        e1.crearEditorial();
+        
+        //a1.modificarAutor("Julio");
+        
 
-        // l1.crearLibro();
         //l1.modificarLibro("Argentina2Mexico0");
         //l1.eliminarLibro();
         //a1.eliminarAutor();
         // e1.eliminarEditorial();
-        int answer;
+        /* int answer;
 
         do {
             System.out.println("\n============= LIBRERIA =============\n");
@@ -66,4 +67,6 @@ public class PablitoMain {
 
             }
 
-        }
+        }*/
+    }
+}
