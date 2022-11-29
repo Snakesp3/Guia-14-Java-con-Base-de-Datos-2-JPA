@@ -2,6 +2,8 @@ package Servicio;
 
 import Entidades.Autor;
 import Entidades.Editorial;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,6 +18,8 @@ public class Servicioautor {
     EntityManager em = emf.createEntityManager();
 
     Scanner leer = new Scanner(System.in);
+
+    List<Autor> aux1 = new ArrayList();
 
     Autor au = new Autor();
 
@@ -41,6 +45,49 @@ public class Servicioautor {
         try {
 
             return au = em.find(Autor.class, id);
+
+        } catch (Exception e) {
+            throw e;
+        }
+
+    }
+
+    public void modificarAutor(String nombre) {
+
+        try {
+            Autor autor = em.find(Autor.class, 22);
+            System.out.print("->");
+            autor.setNombre(nombre);
+            em.getTransaction().begin();
+            em.merge(autor);
+            em.getTransaction().commit();
+
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public void eliminarAutor() {
+
+        try {
+            Autor autor = em.find(Autor.class, 3);
+            System.out.println("<<<Eliminar la editorial>>>");
+            em.getTransaction().begin();
+            em.remove(autor);
+            em.getTransaction().commit();
+
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    //8) Búsqueda de un Autor por nombre.
+
+    public List buscarAutor(String Autor) {
+
+        try {
+
+            return aux1 = em.createQuery("Select a from Autor a where a.nombre like:nombre")
+                    .setParameter("nombre", Autor).getResultList();
 
         } catch (Exception e) {
             throw e;

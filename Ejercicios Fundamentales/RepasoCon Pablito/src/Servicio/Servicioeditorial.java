@@ -2,6 +2,7 @@ package Servicio;
 
 import Entidades.Autor;
 import Entidades.Editorial;
+import Entidades.Libro;
 import java.util.Scanner;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -47,5 +48,38 @@ public class Servicioeditorial {
             throw e;
         }
 
+    }
+     public  void modificarEditorial(String nombre){
+        
+        try {
+            Editorial editorial= em.find(Editorial.class, 5L);
+            System.out.println("<<<Modificar el Titulo del libro>>>");
+            System.out.print("->"); editorial.setNombre(nombre);
+            em.getTransaction().begin();
+            em.merge(nombre);
+            em.getTransaction().commit();
+            
+            
+        } catch (Exception e) {
+            throw e;
+        }
+        
+        
+    }
+    
+     public  void eliminarEditorial(){
+        
+        try {
+            Editorial editorial= em.find(Editorial.class, 5);
+            em.getTransaction().begin();
+            em.remove(editorial);
+            em.getTransaction().commit();
+            
+            
+        } catch (Exception e) {
+            throw e;
+        }
+        
+        
     }
 }
