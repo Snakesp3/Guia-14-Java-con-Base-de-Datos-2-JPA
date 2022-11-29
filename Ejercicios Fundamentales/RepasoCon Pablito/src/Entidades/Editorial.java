@@ -1,4 +1,3 @@
-
 package Entidades;
 
 import javax.persistence.Entity;
@@ -6,6 +5,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Editorial {
+
     @Id
     private Integer id;
     private String nombre;
@@ -25,7 +25,9 @@ public class Editorial {
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        if (id != null) {
+            this.id = id;
+        }
     }
 
     public String getNombre() {
@@ -33,7 +35,9 @@ public class Editorial {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        if (nombre != null) {
+            this.nombre = nombre;
+        }
     }
 
     public Boolean getAlta() {
@@ -41,11 +45,9 @@ public class Editorial {
     }
 
     public void setAlta(Boolean alta) {
-        this.alta = alta;
+        if (alta != null) {
+            this.alta = alta;
+        }
     }
-    
-    
-    
-    
-    
+
 }

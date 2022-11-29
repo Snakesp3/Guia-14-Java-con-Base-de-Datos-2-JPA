@@ -25,6 +25,8 @@ public class Servicioautor {
 
     public void crearAutor() {
         try {
+            Integer autor = leer.nextInt();
+            if (buscarAutorId(autor)==null) {
             System.out.println("ingrese el Id del autor");
             au.setId(leer.nextInt());
             System.out.println("Ingrese el nombre del autor");
@@ -33,7 +35,12 @@ public class Servicioautor {
             au.setAlta(true);
             em.getTransaction().begin();
             em.persist(au);
-            em.getTransaction().commit();
+            em.getTransaction().commit(); 
+            }else{
+                System.out.println("El Autor ya EXISTEEEEEEEEEEEEEEEEEEEEEE!");
+                
+            }
+            
         } catch (Exception e) {
             throw e;
         }

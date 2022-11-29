@@ -1,4 +1,3 @@
-
 package Entidades;
 
 import javax.persistence.Entity;
@@ -7,6 +6,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Libro {
+
     @Id
     private Long isbn;
     private String titulo;
@@ -38,7 +38,10 @@ public class Libro {
     }
 
     public void setIsbn(Long isbn) {
-        this.isbn = isbn;
+        if (isbn != null) {
+            this.isbn = isbn;
+        }
+
     }
 
     public String getTitulo() {
@@ -46,7 +49,10 @@ public class Libro {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        if (titulo != null) {
+            this.titulo = titulo;
+        }
+
     }
 
     public Integer getAnio() {
@@ -54,7 +60,9 @@ public class Libro {
     }
 
     public void setAnio(Integer anio) {
-        this.anio = anio;
+        if (anio != null) {
+            this.anio = anio;
+        }
     }
 
     public Integer getEjemplares() {
@@ -62,7 +70,10 @@ public class Libro {
     }
 
     public void setEjemplares(Integer ejemplares) {
-        this.ejemplares = ejemplares;
+        if (ejemplares != null) {
+            this.ejemplares = ejemplares;
+        }
+
     }
 
     public Integer getEjemplaresPrestados() {
@@ -70,7 +81,10 @@ public class Libro {
     }
 
     public void setEjemplaresPrestados(Integer ejemplaresPrestados) {
-        this.ejemplaresPrestados = ejemplaresPrestados;
+        if (ejemplaresPrestados != null) {
+            this.ejemplaresPrestados = ejemplaresPrestados;
+        }
+
     }
 
     public Integer getEjemplaresRestantes() {
@@ -78,7 +92,10 @@ public class Libro {
     }
 
     public void setEjemplaresRestantes(Integer ejemplaresRestantes) {
-        this.ejemplaresRestantes = ejemplaresRestantes;
+        if (ejemplaresRestantes != null) {
+            this.ejemplaresRestantes = ejemplaresRestantes;
+        }
+
     }
 
     public Autor getAutor() {
@@ -86,7 +103,10 @@ public class Libro {
     }
 
     public void setAutor(Autor autor) {
-        this.autor = autor;
+        if (autor != null) {
+            this.autor = autor;
+        }
+
     }
 
     public Editorial getEditorial() {
@@ -94,11 +114,10 @@ public class Libro {
     }
 
     public void setEditorial(Editorial editorial) {
-        this.editorial = editorial;
+        if (editorial != null) {
+            this.editorial = editorial;
+        }
+
     }
-    
-    
-    
-    
-    
+
 }

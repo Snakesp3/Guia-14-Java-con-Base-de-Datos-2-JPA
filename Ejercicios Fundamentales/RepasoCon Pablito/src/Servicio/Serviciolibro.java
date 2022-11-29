@@ -27,6 +27,7 @@ public class Serviciolibro {
     Servicioeditorial e1 = new Servicioeditorial();
 List<Libro> aux2 = new ArrayList();
     public void crearLibro() {
+       
         try {
             System.out.println("");
             System.out.println("              *****************************************");
@@ -34,7 +35,10 @@ List<Libro> aux2 = new ArrayList();
             System.out.println("              *****************************************");
             System.out.println("");
             System.out.println("<<<Ingrese el ISBN>>>");
-            System.out.print("->");l1.setIsbn(leer.nextLong());
+           
+            Long isbn = leer.nextLong(); 
+            if (buscarLibroIsbn(isbn)==null) {
+            System.out.print("->");l1.setIsbn(isbn);
             System.out.println("*********************");
             System.out.println("<<<Ingrese el Titulo>>>");
             System.out.print("->");l1.setTitulo(leer.next());
@@ -55,12 +59,16 @@ List<Libro> aux2 = new ArrayList();
             System.out.println("<<<Ingrese el Id de la Editorial>>>");
             System.out.print("->");l1.setEditorial(e1.buscarEditorialid(leer.nextInt()));
             System.out.println("***********************************");
-
             em.getTransaction().begin();
             //Ingresando a la tabla que voy a usar
             em.persist(l1);
             //Confirmar operacion
             em.getTransaction().commit();
+            }else{
+                System.out.println("Este libro ya se Ingreso");
+            }   
+            
+            
         } catch (Exception e) {
             throw e;
         }
@@ -131,6 +139,8 @@ List<Libro> aux2 = new ArrayList();
         }
 
     }
+      
+      
 
     
 }

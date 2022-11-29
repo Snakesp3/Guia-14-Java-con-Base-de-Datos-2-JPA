@@ -25,7 +25,10 @@ public class Autor {
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        if (id!=null) {
+           this.id = id;  
+        }
+       
     }
 
     public String getNombre() {
@@ -33,7 +36,11 @@ public class Autor {
     }
 
     public void setNombre(String nombre) {
+        if (nombre!=null) {
         this.nombre = nombre;
+        }
+        
+        
     }
 
     public Boolean getAlta() {
@@ -41,7 +48,10 @@ public class Autor {
     }
 
     public void setAlta(Boolean alta) {
-        this.alta = alta;
+        if (alta!=null) {
+         this.alta = alta;   
+        }
+        
     }
     
     
