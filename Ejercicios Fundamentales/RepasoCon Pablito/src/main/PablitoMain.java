@@ -16,7 +16,7 @@ public class PablitoMain {
 
         //a1.crearAutor();
         System.out.println("-----------------------------------");
-        a1.modificarAutor("CARLOSTEVEZ");
+        //a1.modificarAutor("CARLOSTEVEZ");
         // e1.crearEditorial();
 
         // l1.crearLibro();
