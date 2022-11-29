@@ -25,11 +25,18 @@ public class Servicioautor {
 
     public void crearAutor() {
         try {
+            System.out.println("******************");
+            System.out.println("*Ingrese el Autor*");
+            System.out.println("******************");
             Integer autor = leer.nextInt();
             if (buscarAutorId(autor)==null) {
-            System.out.println("ingrese el Id del autor");
+            System.out.println("*************************");
+            System.out.println("*ingrese el Id del autor*");
+            System.out.println("*************************");
             au.setId(leer.nextInt());
-            System.out.println("Ingrese el nombre del autor");
+            System.out.println("*****************************");
+            System.out.println("*Ingrese el nombre del autor*");
+            System.out.println("*****************************");
             au.setNombre(leer.next());
 
             au.setAlta(true);

@@ -3,6 +3,7 @@ package Servicio;
 import Entidades.Autor;
 import Entidades.Editorial;
 import Entidades.Libro;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -23,10 +24,10 @@ public class Servicioeditorial {
     public void crearEditorial() {
         try {
             System.out.println("ingrese los datos de la editorial a crear");
-            Integer id = leer.nextInt();
-            if (buscarEditorialid(id)==null) {
+            Integer idi = leer.nextInt();
+            if (buscarEditorialid(idi)==null) {
              System.out.println("Ingrese el Id");
-            edi.setId(id);
+            edi.setId(idi);
             System.out.println("Ingrese el nombre de la Editorial");
             edi.setNombre(leer.next());
 
@@ -38,7 +39,7 @@ public class Servicioeditorial {
                 System.out.println("Esta Editorial ya EXITE!");
             }   
             
-        } catch (Exception e) {
+        } catch (InputMismatchException e) {
             throw e;
         }
 

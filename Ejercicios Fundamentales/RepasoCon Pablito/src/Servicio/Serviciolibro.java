@@ -39,34 +39,39 @@ List<Libro> aux2 = new ArrayList();
             Long isbn = leer.nextLong(); 
             
             if (buscarLibroIsbn(isbn)==null) {
-            System.out.print("->");l1.setIsbn(isbn);
+                Libro l2 = new Libro();
+            System.out.print("->");l2.setIsbn(isbn);
             System.out.println("*********************");
             System.out.println("<<<Ingrese el Titulo>>>");
-            System.out.print("->");l1.setTitulo(leer.next());
+            System.out.print("->");l2.setTitulo(leer.next());
             System.out.println("***********************");
             System.out.println("<<<Ingrese el Año>>>");
-            System.out.print("->");l1.setAnio(leer.nextInt());
+            System.out.print("->");l2.setAnio(leer.nextInt());
             System.out.println("********************");
             System.out.println("<<<Cantidad de Ejemplares>>>");
-            System.out.print("->");l1.setEjemplares(leer.nextInt());
+            System.out.print("->");l2.setEjemplares(leer.nextInt());
             System.out.println("****************************");
             System.out.println("<<<Cantidad de Ejemplares Prestados>>>");
-            System.out.print("->");l1.setEjemplaresPrestados(leer.nextInt());
+            System.out.print("->");l2.setEjemplaresPrestados(leer.nextInt());
             System.out.println("**************************************");
-            l1.setEjemplaresRestantes(l1.getEjemplares() - l1.getEjemplaresPrestados());
+            l2.setEjemplaresRestantes(l2.getEjemplares() - l2.getEjemplaresPrestados());
             System.out.println("<<<Ingrese el Id del Autor>>>");
-            System.out.print("->");l1.setAutor(a1.buscarAutorId(leer.nextInt()));
+            System.out.print("->");l2.setAutor(a1.buscarAutorId(leer.nextInt()));
             System.out.println("*****************************");
             System.out.println("<<<Ingrese el Id de la Editorial>>>");
-            System.out.print("->");l1.setEditorial(e1.buscarEditorialid(leer.nextInt()));
-            System.out.println("***********************************");
+            System.out.print("->");l2.setEditorial(e1.buscarEditorialid(leer.nextInt()));
+            System.out.println("              ****************************");
+            System.out.println("              *GRACIAS POR CREAR EL LIBRO*");
+            System.out.println("              ****************************");
             em.getTransaction().begin();
             //Ingresando a la tabla que voy a usar
-            em.persist(l1);
+            em.persist(l2);
             //Confirmar operacion
             em.getTransaction().commit();
             }else{
-                System.out.println("Este libro ya se Ingreso");
+                System.out.println("**************************");
+                System.out.println("*El ISBN ya esta asignado a un LIBRO*");
+                System.out.println("**************************");
             }   
             
             
