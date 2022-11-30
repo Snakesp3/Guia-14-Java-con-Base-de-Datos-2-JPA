@@ -3,12 +3,14 @@ package main;
 import Servicio.Servicioautor;
 import Servicio.Servicioeditorial;
 import Servicio.Serviciolibro;
+import java.util.Date;
 
 public class PablitoMain {
 
     public static void main(String[] args) {
-
-        Servicioautor a1 = new Servicioautor();
+Date hoy = new Date();
+        System.out.println("hoy" +hoy);
+        /*Servicioautor a1 = new Servicioautor();
 
         Servicioeditorial e1 = new Servicioeditorial();
 
