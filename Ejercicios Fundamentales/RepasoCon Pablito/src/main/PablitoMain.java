@@ -14,9 +14,9 @@ public class PablitoMain {
 
         Serviciolibro l1 = new Serviciolibro();
 
-        l1.crearLibro();
+        //l1.crearLibro();
         //a1.crearAutor();
-       // e1.crearEditorial();
+        e1.crearEditorial();
         
         //a1.modificarAutor("Julio");
         

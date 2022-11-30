@@ -7,24 +7,24 @@ import javax.persistence.Id;
 public class Editorial {
 
     @Id
-    private Integer id;
+    private Long id;
     private String nombre;
     private Boolean alta;
 
     public Editorial() {
     }
 
-    public Editorial(Integer id, String nombre, Boolean alta) {
+    public Editorial(Long id, String nombre, Boolean alta) {
         this.id = id;
         this.nombre = nombre;
         this.alta = alta;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         if (id != null) {
             this.id = id;
         }

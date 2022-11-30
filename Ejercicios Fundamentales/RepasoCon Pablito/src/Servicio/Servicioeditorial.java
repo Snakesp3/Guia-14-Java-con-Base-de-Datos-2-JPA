@@ -23,17 +23,20 @@ public class Servicioeditorial {
 
     public void crearEditorial() {
         try {
-            System.out.println("ingrese los datos de la editorial a crear");
-            Integer idi = leer.nextInt();
-            if (buscarEditorialid(idi)==null) {
+            System.out.println("***************");
+            System.out.println("*INGRESE LA ID*");
+            System.out.println("***************");
+            Long edi = leer.nextLong();
+            if (buscarEditorialid(edi)==null) {
+                Editorial edi2 = new Editorial();
              System.out.println("Ingrese el Id");
-            edi.setId(idi);
+            edi2.setId(leer.nextLong());
             System.out.println("Ingrese el nombre de la Editorial");
-            edi.setNombre(leer.next());
+            edi2.setNombre(leer.next());
 
-            edi.setAlta(true);
+            edi2.setAlta(true);
             em.getTransaction().begin();
-            em.persist(edi);
+            em.persist(edi2);
             em.getTransaction().commit();  
             }else{
                 System.out.println("Esta Editorial ya EXITE!");
@@ -45,7 +48,7 @@ public class Servicioeditorial {
 
     }
 
-    public Editorial buscarEditorialid(int id) {
+    public Editorial buscarEditorialid(Long id) {
 
         try {
 
