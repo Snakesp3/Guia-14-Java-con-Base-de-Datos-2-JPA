@@ -16,9 +16,7 @@ public class Servicioeditorial {
 
 //intermediario entre el programa y base de datos
     EntityManager em = emf.createEntityManager();
-
     Scanner leer = new Scanner(System.in);
-
     Editorial edi = new Editorial();
 
     public void crearEditorial() {
@@ -27,69 +25,61 @@ public class Servicioeditorial {
             System.out.println("*INGRESE LA ID*");
             System.out.println("***************");
             Long edi = leer.nextLong();
-            if (buscarEditorialid(edi)==null) {
+            if (buscarEditorialid(edi) == null) {
                 Editorial edi2 = new Editorial();
-             System.out.println("Ingrese el Id");
-            edi2.setId(leer.nextLong());
-            System.out.println("Ingrese el nombre de la Editorial");
-            edi2.setNombre(leer.next());
-
-            edi2.setAlta(true);
-            em.getTransaction().begin();
-            em.persist(edi2);
-            em.getTransaction().commit();  
-            }else{
-                System.out.println("Esta Editorial ya EXITE!");
-            }   
-            
+                System.out.println("***************");
+                System.out.println("*Ingrese el Id*");
+                System.out.println("***************");
+                edi2.setId(leer.nextLong());
+                System.out.println("***********************************");
+                System.out.println("*Ingrese el nombre de la Editorial*");
+                System.out.println("***********************************");
+                edi2.setNombre(leer.next());
+                edi2.setAlta(true);
+                em.getTransaction().begin();
+                em.persist(edi2);
+                em.getTransaction().commit();
+            } else {
+                System.out.println("***************************");
+                System.out.println("*Esta Editorial ya EXISTE!*");
+                System.out.println("***************************");
+            }
         } catch (InputMismatchException e) {
             throw e;
         }
-
     }
 
     public Editorial buscarEditorialid(Long id) {
-
         try {
-
             return edi = em.find(Editorial.class, id);
-
         } catch (Exception e) {
             throw e;
         }
-
     }
-     public  void modificarEditorial(String nombre){
-        
+
+    public void modificarEditorial(String nombre) {
         try {
-            Editorial editorial= em.find(Editorial.class, 5L);
+            Editorial editorial = em.find(Editorial.class, 5L);
             System.out.println("<<<Modificar el Titulo del libro>>>");
-            System.out.print("->"); editorial.setNombre(nombre);
+            System.out.print("->");
+            editorial.setNombre(nombre);
             em.getTransaction().begin();
             em.merge(nombre);
             em.getTransaction().commit();
-            
-            
         } catch (Exception e) {
             throw e;
         }
-        
-        
     }
-    
-     public  void eliminarEditorial(){
-        
+
+    public void eliminarEditorial() {
         try {
-            Editorial editorial= em.find(Editorial.class, 5);
+            Editorial editorial = em.find(Editorial.class, 5);
             em.getTransaction().begin();
             em.remove(editorial);
             em.getTransaction().commit();
-            
-            
         } catch (Exception e) {
             throw e;
         }
-        
-        
+
     }
 }
