@@ -1,74 +1,56 @@
 package main;
 
+import Entidades.Autor;
 import Servicio.Servicioautor;
 import Servicio.Servicioeditorial;
 import Servicio.Serviciolibro;
-import java.util.Date;
+import java.util.Scanner;
 
 public class PablitoMain {
 
     public static void main(String[] args) {
-Date hoy = new Date();
-        System.out.println("hoy" +hoy);
-        /*Servicioautor a1 = new Servicioautor();
 
-        Servicioeditorial e1 = new Servicioeditorial();
+        Scanner leer = new Scanner(System.in);
 
         Serviciolibro l1 = new Serviciolibro();
+        Servicioautor a1 = new Servicioautor();
+        Servicioeditorial e1 = new Servicioeditorial();
 
-        //l1.crearLibro();
-        //a1.crearAutor();
-        e1.crearEditorial();
+       
         
-        //a1.modificarAutor("Julio");
-        
-
-        //l1.modificarLibro("Argentina2Mexico0");
-        //l1.eliminarLibro();
-        //a1.eliminarAutor();
-        // e1.eliminarEditorial();
-        /* int answer;
-
+        int Libro;
+        String volver = "s";
+       
         do {
-            System.out.println("\n============= LIBRERIA =============\n");
-            System.out.println("Que te gustaría hacer?");
-            System.out.println("");
-            System.out.println("1) Crear autor");
-            System.out.println("2) ");
-            System.out.println("3) ");
-            System.out.println("4) ");
-            System.out.println("5) Crear editorial");
-            System.out.println("6) ");
-            System.out.println(
-            "
-            System.out.println("7) ");
-            System.out.println("8) Crear libro");
-            System.out.println("9) ");
-            System.out.println("10) ");
-            System.out.println("11) ");
-            System.out.println("12) ");
-            System.out.println("13) ");
-            System.out.println("14) ");
-            System.out.println("15) Salir");
-            answer = read.nextInt();
-
-            switch (answer) {
+        System.out.println("****************");
+        System.out.println("*Crear Libreria*");
+        System.out.println("****************");
+        System.out.println("<<<<OPCIONES>>>>");
+        System.out.println("1) Crear Libro");
+        System.out.println("2) Crear Autor");
+        System.out.println("3) Crear Editorial");
+        System.out.println("4) Salir");
+        Libro = leer.nextInt();
+            switch (Libro) {
 
                 case 1:
+                    l1.crearLibro();
+                    break;
+                case 2:
                     a1.crearAutor();
                     break;
-                     case 2:
-                    a1.buscarAutor();
+                case 3:
+                    e1.crearEditorial();
                     break;
-                     case 3:
-                    a1.modificarAutor();
+                case 4:
+                    System.out.println("**Gracias por participar**");
                     break;
-                      case 4:
-                    a1.eliminarAutor();
+                   
+                default:
+                    System.out.println("Elija la opcion del 1 al 3");
                     break;
+               }
+        } while (Libro!=4);
 
-            }
-
-        }*/
     }
 }
