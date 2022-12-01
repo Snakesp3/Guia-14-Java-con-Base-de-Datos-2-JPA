@@ -19,18 +19,23 @@ public class Main {
        
         
         int Libro;
-        String volver = "s";
-       
         do {
-        System.out.println("****************");
-        System.out.println("*Crear Libreria*");
-        System.out.println("****************");
-        System.out.println("<<<<OPCIONES>>>>");
-        System.out.println("1) Crear Libro");
-        System.out.println("2) Crear Autor");
-        System.out.println("3) Crear Editorial");
-        System.out.println("4) Salir");
-        Libro = leer.nextInt();
+        System.out.println("");
+        System.out.println("//////////////*******************///////////////");
+        System.out.println("//////////////*OPCIONES DE CARGA*///////////////");
+        System.out.println("//////////////*******************///////////////");
+        System.out.println("---ELIJA UNA OPCION DEL 1 AL 3 O 4 PARA SALIR---");
+        System.out.println("================================================");
+        System.out.println("          * * * * * * * * * * * * * *");
+        System.out.println("          *   1) Crear Libro        *");
+        System.out.println("          *                         *");
+        System.out.println("          *   2) Crear Autor        *");
+        System.out.println("          *                         *");
+        System.out.println("          *   3) Crear Editorial    *");
+        System.out.println("          *                         *");
+        System.out.println("          *   4) Salir              *");
+        System.out.println("          * * * * * * * * * * * * * *");
+        System.out.print("->");Libro = leer.nextInt();
             switch (Libro) {
 
                 case 1:
@@ -43,11 +48,13 @@ public class Main {
                     e1.crearEditorial();
                     break;
                 case 4:
-                    System.out.println("**Gracias por participar**");
+                    System.out.println("***GRACIAS POR SUMINISTRAR LA INFORMACION A LA BASE DE DATOS***");
                     break;
                    
                 default:
-                    System.out.println("Elija la opcion del 1 al 3");
+                    System.out.println("*****************************");
+                    System.out.println("*ELIJA UNA OPCION DEL 1 al 4*");
+                    System.out.println("*****************************");
                     break;
                }
         } while (Libro!=4);

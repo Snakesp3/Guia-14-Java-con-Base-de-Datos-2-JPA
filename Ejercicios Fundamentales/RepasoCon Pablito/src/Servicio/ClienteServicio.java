@@ -1,6 +1,8 @@
+
+
 package Servicio;
 
-import Entidades.Autor;
+import Entidades.Prestamos;
 import Entidades.Libro;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,31 +11,33 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class Serviciolibro {
 
-    /*Esta clase tiene la responsabilidad de llevar adelante las funcionalidades necesarias para
- administrar autores (consulta, creación, modificación y eliminación).*/
-//Metodo que usa la unidad de persistencia para manejar los datos
+public class ClienteServicio {
+   
+     /*Esta clase tiene la responsabilidad de llevar adelante las funcionalidades necesarias para
+     administrar autores (consulta, creación, modificación y eliminación).*/
+    
+    //Metodo que usa la unidad de persistencia para manejar los datos
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("RepasoPablito");
 
-//intermediario entre el programa y base de datos
+    //intermediario entre el programa y base de datos
     EntityManager em = emf.createEntityManager();
 
     Scanner leer = new Scanner(System.in);
 
-    Libro l1 = new Libro();
+    Prestamos c1 = new Prestamos();
 
-    Servicioautor a1 = new Servicioautor();
+    /*Servicioautor a1 = new Servicioautor();
     Servicioeditorial e1 = new Servicioeditorial();
-    List<Libro> aux2 = new ArrayList();
-
-    public void crearLibro() {
+    List<Libro> aux2 = new ArrayList();*/
+    
+     public void crearLibro() {
 
         try {
             System.out.println("");
-            System.out.println("              *****************************************");
-            System.out.println("              ***INGRESE LOS DATOS DEL LIBRO A CREAR***");
-            System.out.println("              *****************************************");
+            System.out.println("             *******************************************");
+            System.out.println("             ***INGRESE LOS DATOS DEL CLIENTE A CREAR***");
+            System.out.println("             *******************************************");
             System.out.println("");
             System.out.println("<<<Ingrese el ISBN>>>");
             System.out.print("->");Long isbn = leer.nextLong();
@@ -83,73 +87,10 @@ public class Serviciolibro {
             throw e;
         }
     }
-//Metodo Buscar libro
-    //9) Búsqueda de un libro por ISBN.
-
-    public Libro buscarLibroIsbn(Long isbn) {
-
-        try {
-            return l1 = em.find(Libro.class, isbn);
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-    //Metodo Modificar  
-
-    public void modificarLibro(String titulo) {
-
-        try {
-            Libro libro = em.find(Libro.class, 5L);
-            System.out.print("->");
-            libro.setTitulo(titulo);
-            em.getTransaction().begin();
-            em.merge(libro);
-            em.getTransaction().commit();
-
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
-    public void eliminarLibro() {
-
-        try {
-            System.out.print("->"); Libro libro = buscarLibroIsbn(leer.nextLong());
-            em.getTransaction().begin();
-            em.remove(libro);
-            em.getTransaction().commit();
-
-        } catch (Exception e) {
-            throw e;
-        }
-
-    }
-    //10) Búsqueda de un libro por Título. 
-
-    public List buscarAutor(String Autor) {
-
-        try {
-
-            return aux2 = em.createQuery("Select a from libro a join autor where b.nombre like:nombre")
-                    .setParameter("nombre", Autor).getResultList();
-
-        } catch (Exception e) {
-            throw e;
-        }
-
-    }
-
-    public List buscarEditorial(String Autor) {
-
-        try {
-
-            return aux2 = em.createQuery("Select a from libro a join editorial e where e.nombre like:nombre")
-                    .setParameter("nombre", Autor).getResultList();
-
-        } catch (Exception e) {
-            throw e;
-        }
-
-    }
-
+    
+    
+    
+    
+    
+    
 }

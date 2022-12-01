@@ -41,7 +41,7 @@ public class Servicioeditorial {
                 em.getTransaction().commit();
             } else {
                 System.out.println("***************************");
-                System.out.println("*Esta Editorial ya EXISTE!*");
+                System.out.println("*Esta Editorial ya existe!*");
                 System.out.println("***************************");
             }
         } catch (InputMismatchException e) {
@@ -59,9 +59,12 @@ public class Servicioeditorial {
 
     public void modificarEditorial(String nombre) {
         try {
+            String e;
             Editorial editorial = em.find(Editorial.class, 5L);
-            System.out.println("<<<Modificar el Titulo del libro>>>");
-            System.out.print("->");
+            System.out.println("*******************************");
+            System.out.println("*Modificar el Titulo del libro*");
+            System.out.println("*******************************");
+            
             editorial.setNombre(nombre);
             em.getTransaction().begin();
             em.merge(nombre);

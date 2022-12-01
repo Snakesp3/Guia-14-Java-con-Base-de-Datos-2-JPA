@@ -28,12 +28,12 @@ public class Servicioautor {
             System.out.println("******************");
             System.out.println("*Ingrese el Autor*");
             System.out.println("******************");
-            Integer autor = leer.nextInt();
+            System.out.print("->");Integer autor = leer.nextInt();
             if (buscarAutorId(autor)==null) {
             System.out.println("*************************");
             System.out.println("*ingrese el Id del autor*");
             System.out.println("*************************");
-            au.setId(leer.nextInt());
+            System.out.print("->");au.setId(leer.nextInt());
             System.out.println("*****************************");
             System.out.println("*Ingrese el nombre del autor*");
             System.out.println("*****************************");
@@ -44,7 +44,9 @@ public class Servicioautor {
             em.persist(au);
             em.getTransaction().commit(); 
             }else{
-                System.out.println("El Autor ya EXISTEEEEEEEEEEEEEEEEEEEEEE!");
+                System.out.println("*********************");
+                System.out.println("*El Autor ya Existe!*");
+                System.out.println("*********************");
                 
             }
             
@@ -85,7 +87,9 @@ public class Servicioautor {
 
         try {
             Autor autor = em.find(Autor.class, 3);
-            System.out.println("<<<Eliminar la editorial>>>");
+            System.out.println("***********************");
+            System.out.println("*Eliminar la editorial*");
+            System.out.println("***********************");
             em.getTransaction().begin();
             em.remove(autor);
             em.getTransaction().commit();
