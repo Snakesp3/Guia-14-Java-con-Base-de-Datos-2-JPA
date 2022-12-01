@@ -1,4 +1,4 @@
-package main;
+package Principal;
 
 import Entidades.Autor;
 import Servicio.Servicioautor;
@@ -6,7 +6,7 @@ import Servicio.Servicioeditorial;
 import Servicio.Serviciolibro;
 import java.util.Scanner;
 
-public class PablitoMain {
+public class Main {
 
     public static void main(String[] args) {
 
