@@ -1,22 +1,26 @@
-
 package Entidades;
 
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Prestamos {
- @Id   
-    
-   private Integer id;
-   private Date fechaPrestamo;
-   private Date fechaDevolicion;
-   @OneToOne
-   private Libro libro;
-   @OneToOne
-   private Prestamos cliente;
+
+    @Id
+
+    private Integer id;
+    @Temporal(TemporalType.DATE)
+    private Date fechaPrestamo;
+    @Temporal(TemporalType.DATE)
+    private Date fechaDevolicion;
+    @OneToOne
+    private Libro libro;
+    @OneToOne
+    private Prestamos cliente;
 
     public Prestamos() {
     }
@@ -68,10 +72,5 @@ public class Prestamos {
     public void setCliente(Prestamos cliente) {
         this.cliente = cliente;
     }
-    
-    
-    
-    
-    
-    
+
 }

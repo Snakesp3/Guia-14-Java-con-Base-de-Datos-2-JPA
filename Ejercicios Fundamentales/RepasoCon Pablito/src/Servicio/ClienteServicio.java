@@ -2,7 +2,8 @@
 
 package Servicio;
 
-import Entidades.Prestamos;
+import Entidades.Cliente;
+import static Entidades.Cliente_.id;
 import Entidades.Libro;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,72 +26,115 @@ public class ClienteServicio {
 
     Scanner leer = new Scanner(System.in);
 
-    Prestamos c1 = new Prestamos();
-
+    Cliente c1 = new Cliente();
+    List<Cliente>clientes=new ArrayList();
     /*Servicioautor a1 = new Servicioautor();
     Servicioeditorial e1 = new Servicioeditorial();
     List<Libro> aux2 = new ArrayList();*/
     
-     public void crearLibro() {
+     public void crearCliente() {
 
         try {
             System.out.println("");
-            System.out.println("             *******************************************");
-            System.out.println("             ***INGRESE LOS DATOS DEL CLIENTE A CREAR***");
-            System.out.println("             *******************************************");
+            System.out.println("             ***********************************");
+            System.out.println("             ***INGRESE LOS DATOS DEL CLIENTE***");
+            System.out.println("             ***********************************");
             System.out.println("");
-            System.out.println("<<<Ingrese el ISBN>>>");
-            System.out.print("->");Long isbn = leer.nextLong();
-            if (buscarLibroIsbn(isbn) == null) {
-                Libro l2 = new Libro();
+            System.out.println("***************************");
+            System.out.println("*Ingrese el ID del cliente*");
+            System.out.println("***************************");
+            System.out.print("->");int id = leer.nextInt();
+            if (buscarClienteId(id) == null) {
+                Cliente c2 = new Cliente();
                 
-                l2.setIsbn(isbn);
+                c2.setId(id);
                 System.out.println("*******************");
-                System.out.println("*Ingrese el Titulo*");
+                System.out.println("*Ingrese el D.N.I*");
                 System.out.println("*******************");
-                System.out.print("->");l2.setTitulo(leer.next());
-                System.out.println("****************");
-                System.out.println("*Ingrese el Año*");
-                System.out.println("****************");
-                System.out.print("->");l2.setAnio(leer.nextInt());
-                System.out.println("************************");
-                System.out.println("*Cantidad de Ejemplares*");
-                System.out.println("************************");
-                System.out.print("->");l2.setEjemplares(leer.nextInt());
-                System.out.println("**********************************");
-                System.out.println("*Cantidad de Ejemplares Prestados*");
-                System.out.println("**********************************");
-                System.out.print("->");l2.setEjemplaresPrestados(leer.nextInt());
-                l2.setEjemplaresRestantes(l2.getEjemplares() - l2.getEjemplaresPrestados());
-                System.out.println("*************************");
-                System.out.println("*Ingrese el Id del Autor*");
-                System.out.println("*************************");
-                System.out.print("->");l2.setAutor(a1.buscarAutorId(leer.nextInt()));
-                System.out.println("*******************************");
-                System.out.println("*Ingrese el Id de la Editorial*");
-                System.out.println("*******************************");
-                System.out.print("->");l2.setEditorial(e1.buscarEditorialid(leer.nextLong()));
-                System.out.println("              ****************************");
-                System.out.println("              *GRACIAS POR CREAR EL LIBRO*");
-                System.out.println("              ****************************");
+                System.out.print("->");c2.setDocumento(leer.nextLong());
+                System.out.println("*******************");
+                System.out.println("*Ingrese el Nombre*");
+                System.out.println("*******************");
+                System.out.print("->");c2.setNombre(leer.next());
+                System.out.println("*********************");
+                System.out.println("*Ingrese el Apellido*");
+                System.out.println("*********************");
+                System.out.print("->");c2.setApellido(leer.next());
+                System.out.println("*********************");
+                System.out.println("*Ingrese el telefono*");
+                System.out.println("*********************");
+                System.out.print("->");c2.setTelefono(leer.next());
+                
+                System.out.println("              *****************************");
+                System.out.println("              *GRACIAS POR CREAR AL CLIENTE*");
+                System.out.println("              *****************************");
+                
                 em.getTransaction().begin();
                 //Ingresando a la tabla que voy a usar
-                em.persist(l2);
+                em.persist(c2);
                 //Confirmar operacion
                 em.getTransaction().commit();
             } else {
                 System.out.println("*************************************");
-                System.out.println("*El ISBN ya esta asignado a un LIBRO*");
+                System.out.println("*El ID ya esta asignado a un Cliente*");
                 System.out.println("*************************************");
+                System.out.println("Cliente: " +c1.getNombre()+"\nApellido: "+c1.getApellido()+"\nID: "+ c1.getId());
             }
         } catch (Exception e) {
             throw e;
         }
     }
+    public Cliente buscarClienteId(int id) {
+
+        try {
+            return c1 = em.find(Cliente.class, id);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
     
+     //Metodo Modificar  
+
+    public void modificarCliente(Integer id) {
+
+        try {
+            Cliente cliente = em.find(Cliente.class, id);
+            System.out.print("->");
+            System.out.println("Ingrese el nuevo Nombre");
+            cliente.setNombre(leer.next());
+            em.getTransaction().begin();
+            em.merge(cliente);
+            em.getTransaction().commit();
+            System.out.println("El nombre se modifico correctamente");
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public void eliminarLibro() {
+
+        try {
+            System.out.print("->"); Cliente cliente = buscarClienteId(leer.nextInt());
+            em.getTransaction().begin();
+            em.remove(id);
+            em.getTransaction().commit();
+
+        } catch (Exception e) {
+            throw e;
+        }
+
+    }
     
-    
-    
+    public List buscarClientes (){
+        
+        try {
+            return clientes = em.createQuery("SELECT c FROM Cliente c ").getResultList();
+        } catch (Exception e) {
+            throw e;
+        }
+        
+        
+    }
     
     
 }

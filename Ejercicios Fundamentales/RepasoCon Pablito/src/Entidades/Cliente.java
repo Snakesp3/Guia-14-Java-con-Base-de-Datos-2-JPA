@@ -1,9 +1,12 @@
 
 package Entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-public class Cliente extends Libro {
-    
+@Entity
+public class Cliente {
+   @Id 
     private Integer id;
     private Long documento;
     private String nombre;
